@@ -1,0 +1,15 @@
+android {
+
+    productFlavors {
+
+        official {
+            applicationId rootProject.appid
+        }
+        xiaomi {
+            applicationId rootProject.xiaomi_appid
+        }
+        huawei {
+            applicationId rootProject.huawei_appid
+        }
+    }
+}

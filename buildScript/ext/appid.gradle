@@ -1,5 +1,10 @@
 ext{
     appid = "com.xiaofeiluo.componentization"
+
+    xiaomi_appid = "com.xiaofeiluo.componentization.xiaomi"
+
+
+    huawei_appid = "com.xiaofeiluo.componentization.huawei"
 }
 
 
