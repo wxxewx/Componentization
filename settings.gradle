@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':base', ':http', ':image', ':ui', ':router', ':moudle1', ':moudle2', ':moudle3'

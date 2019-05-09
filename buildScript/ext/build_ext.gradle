@@ -1,0 +1,4 @@
+apply from: "$rootProject.projectDir/buildScript/ext/appid.gradle"
+apply from: "$rootProject.projectDir/buildScript/ext/version.gradle"
+apply from: "$rootProject.projectDir/buildScript/ext/build.gradle"
+
