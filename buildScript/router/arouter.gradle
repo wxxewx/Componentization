@@ -1,0 +1,10 @@
+android {
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
+    project.dependencies.add("kapt", "com.alibaba:arouter-compiler:$rootProject.router_compiler_version")
+    project.dependencies.add("implementation", project(':router'))
+}

@@ -1,0 +1,13 @@
+def getDependencyModule() {
+    return project.properties.get("dependencyModule")
+}
+
+def modules = getDependencyModule().split(',')
+
+modules.each{
+    module->
+        print(module)
+        project.dependencies.add("implementation", project(':'+module))
+}
+
+

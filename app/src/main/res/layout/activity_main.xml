@@ -7,13 +7,40 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TextView
+
+    <Button
+            android:text="前往module1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="这是主要的模块"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/module1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"/>
 
+    <Button
+            android:text="前往module1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/module2"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/module1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
+
+    <Button
+            android:text="前往module1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/module3"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/module2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
 </android.support.constraint.ConstraintLayout>
