@@ -27,4 +27,5 @@ dependencies {
     api project(':http')
     api project(':image')
     api project(':ui')
+    implementation project(':router')
 }

@@ -4,10 +4,23 @@ def getDependencyModule() {
 
 def modules = getDependencyModule().split(',')
 
-modules.each{
-    module->
+android{
+    buildTypes {
+        release {
+            resValue "string", "modules", getDependencyModule()
+        }
+
+        debug {
+            resValue "string", "modules", getDependencyModule()
+        }
+    }
+
+}
+
+modules.each {
+    module ->
         print(module)
-        project.dependencies.add("implementation", project(':'+module))
+        project.dependencies.add("implementation", project(':' + module))
 }
 
 
