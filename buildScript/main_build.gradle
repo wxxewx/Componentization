@@ -1,3 +1,7 @@
+apply from: "$rootProject.projectDir/buildScript/buildTypes/appBuildTypes.gradle"
+apply from: "$rootProject.projectDir/buildScript/buildTypes/appProductFlavors.gradle"
+apply from: "$rootProject.projectDir/buildScript/router/arouter.gradle"
+apply from: "$rootProject.projectDir/buildScript/other_build.gradle"
 def getDependencyModule() {
     return project.properties.get("dependencyModule")
 }
