@@ -10,8 +10,6 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
-        flavorDimensions "versionCode"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
 
