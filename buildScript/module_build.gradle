@@ -1,7 +1,36 @@
+def getDependencyModule() {
+    return project.properties.get("dependencyModule")
+}
+
+def modules = getDependencyModule().split(',')
+
+def contains = modules.contains(project.getName())
+
+if (contains) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+delete project.buildDir
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 apply from: "$rootProject.projectDir/buildScript/router/arouter.gradle"
 apply from: "$rootProject.projectDir/buildScript/buildTypes/appBuildTypes.gradle"
 apply from: "$rootProject.projectDir/buildScript/common_build.gradle"
 
 
-
-
+android {
+    sourceSets {
+        main {
+            if (contains) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            }
+        }
+    }
+}
