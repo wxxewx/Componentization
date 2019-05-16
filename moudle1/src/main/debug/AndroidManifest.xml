@@ -6,6 +6,7 @@
     <application
             android:allowBackup="true"
             android:label="@string/app_name"
+            android:name=".debug.Module1Applaction"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity android:name=".Module1HomeActivity">
             <intent-filter>
