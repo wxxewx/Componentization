@@ -50,4 +50,17 @@
 				android:gravity="center"
 				android:layout_weight="1"/>
 	</RadioGroup>
+
+	<FrameLayout
+			android:id="@+id/content"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toTopOf="@+id/tab"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			app:layout_constraintTop_toTopOf="parent">
+
+	</FrameLayout>
 </android.support.constraint.ConstraintLayout>

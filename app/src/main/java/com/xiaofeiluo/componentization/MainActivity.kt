@@ -3,9 +3,10 @@ package com.xiaofeiluo.componentization
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioGroup
-import android.widget.Toast
-import com.alibaba.android.arouter.launcher.ARouter
-import com.xiaofeiluo.router.module1Home
+import com.xiaofeiluo.router.RouterUtil
+import com.xiaofeiluo.router.home_fragment
+import com.xiaofeiluo.router.me_fragment
+import com.xiaofeiluo.router.wanttobuy_fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +16,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         tab.setOnCheckedChangeListener { radioGroup: RadioGroup, i: Int ->
             when (i) {
-                home.id -> Toast.makeText(this, "1", Toast.LENGTH_LONG).show()
-                wantToBuy.id -> Toast.makeText(this, "2", Toast.LENGTH_LONG).show()
-                me.id -> Toast.makeText(this, "3", Toast.LENGTH_LONG).show()
+                home.id -> checkedHome()
+                wantToBuy.id -> checkedWantToBuy()
+                me.id -> checkedMe()
             }
         }
+        tab.check(home.id)
     }
+
+    private fun checkedWantToBuy() {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        beginTransaction.replace(R.id.content, RouterUtil.getFragment(wanttobuy_fragment)).commit()
+    }
+
+    private fun checkedMe() {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        beginTransaction.replace(R.id.content, RouterUtil.getFragment(me_fragment)).commit()
+    }
+
+    private fun checkedHome() {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        beginTransaction.replace(R.id.content, RouterUtil.getFragment(home_fragment)).commit()
+    }
+
+
 }
