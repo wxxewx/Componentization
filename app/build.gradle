@@ -2,17 +2,9 @@ apply plugin: 'com.android.application'
 apply from: "$rootProject.projectDir/buildScript/main_build.gradle"
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
     }
-
 }
 
-
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-}

@@ -1,19 +1,10 @@
-apply plugin: 'com.android.library'
-apply from: "$rootProject.projectDir/buildScript/buildTypes/appBuildTypes.gradle"
+apply from: "$rootProject.projectDir/buildScript/android_lib_build.gradle"
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
     }
 
 
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

@@ -1,16 +1,13 @@
 apply from: "$rootProject.projectDir/buildScript/module_build.gradle"
+
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+
         versionCode rootProject.versionCode
         versionName rootProject.versionName
     }
 
 
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

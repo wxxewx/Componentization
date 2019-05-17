@@ -20,7 +20,7 @@ apply plugin: 'kotlin-kapt'
 
 apply from: "$rootProject.projectDir/buildScript/router/arouter.gradle"
 apply from: "$rootProject.projectDir/buildScript/buildTypes/appBuildTypes.gradle"
-apply from: "$rootProject.projectDir/buildScript/common_build.gradle"
+apply from: "$rootProject.projectDir/buildScript/module_common_build.gradle"
 
 
 android {
