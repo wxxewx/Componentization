@@ -26,17 +26,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkedWantToBuy() {
         val beginTransaction = supportFragmentManager.beginTransaction()
-        beginTransaction.replace(R.id.content, RouterUtil.getFragment(wanttobuy_fragment)).commit()
+        RouterUtil.getFragment(wanttobuy_fragment)?.let { beginTransaction.replace(R.id.content, it).commit() }
     }
 
     private fun checkedMe() {
         val beginTransaction = supportFragmentManager.beginTransaction()
-        beginTransaction.replace(R.id.content, RouterUtil.getFragment(me_fragment)).commit()
+        RouterUtil.getFragment(me_fragment)?.let { beginTransaction.replace(R.id.content, it).commit() }
     }
 
     private fun checkedHome() {
         val beginTransaction = supportFragmentManager.beginTransaction()
-        beginTransaction.replace(R.id.content, RouterUtil.getFragment(home_fragment)).commit()
+        val fragment = RouterUtil.getFragment(home_fragment)
+        fragment?.let {
+            beginTransaction.replace(R.id.content,it).commit()
+        }
+
     }
 
 
