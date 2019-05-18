@@ -6,14 +6,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.xiaofeiluo.router.me_fragment
+import com.alibaba.android.arouter.launcher.ARouter
+import com.xiaofeiluo.router.module3.IUserInfoService
+import com.xiaofeiluo.router.module3.Module3RouterPath
+import kotlinx.android.synthetic.main.me.*
 
 
-@Route(path = me_fragment)
-class MeFragment:Fragment() {
+@Route(path = Module3RouterPath.me_fragment)
+class MeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.me,null)
+        return inflater.inflate(R.layout.me, null)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUernfo()
+    }
+
+    private fun initUernfo() {
+        val userInfo = ARouter.getInstance().build(Module3RouterPath.UserInfoService).navigation()
+        userInfo?.let {
+            if (it is IUserInfoService) {
+                it.getUserAge {
+                    age.text = it
+                }
+                it.getUserName {
+                    name.text = it
+                }
+                it.getUserSchool {
+                    school.text = it
+                }
+            }
+        }
     }
 }

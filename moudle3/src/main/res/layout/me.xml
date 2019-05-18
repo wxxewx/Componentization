@@ -1,23 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:orientation="vertical">
 
-
-	<TextView
-			android:text="me"
-			android:layout_width="wrap_content"
+	<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/textView"
-			android:textSize="30sp"
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			android:layout_marginEnd="8dp"
-			app:layout_constraintStart_toStartOf="parent"
-			android:layout_marginStart="8dp"
-			android:layout_marginBottom="8dp"
-			app:layout_constraintBottom_toBottomOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+			android:padding="10dp">
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="名字："
+				android:textColor="#333333"
+				/>
+
+		<TextView
+				android:id="@+id/name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:textColor="#666666"
+				/>
+
+	</LinearLayout>
+
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#eeeeee"/>
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp">
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="年龄："
+				android:textColor="#333333"
+				/>
+
+		<TextView
+				android:id="@+id/age"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:textColor="#666666"
+				/>
+
+	</LinearLayout>
+
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#eeeeee"/>
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp">
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="学校："
+				android:textColor="#333333"
+				/>
+
+		<TextView
+				android:id="@+id/school"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:textColor="#666666"
+				/>
+
+	</LinearLayout>
+
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#eeeeee"/>
+</LinearLayout>

@@ -1,11 +1,10 @@
-package com.xiaofeiluo.router
-
-
-const val module1AppInit = "/module1/appInit"
-const val module2AppInit = "/module2/appInit"
-const val module3AppInit = "/module3/appInit"
+package com.xiaofeiluo.router.applaction
 
 object AppModules {
+
+    const val module1AppInit = "/module1/appInit"
+    const val module2AppInit = "/module2/appInit"
+    const val module3AppInit = "/module3/appInit"
 
     fun getModulePath(module: String): String? {
         return when (module) {

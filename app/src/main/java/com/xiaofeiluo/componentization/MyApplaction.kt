@@ -2,8 +2,8 @@ package com.xiaofeiluo.componentization
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
-import com.xiaofeiluo.base.IAppInit
-import com.xiaofeiluo.router.AppModules
+import com.xiaofeiluo.router.applaction.IAppInit
+import com.xiaofeiluo.router.applaction.AppModules
 
 class MyApplaction : Application() {
 

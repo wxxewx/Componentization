@@ -4,12 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.xiaofeiluo.base.IAppInit
-import com.xiaofeiluo.router.AppModules
-import com.xiaofeiluo.router.module1AppInit
-import com.xiaofeiluo.router.module2AppInit
+import com.xiaofeiluo.router.applaction.AppModules
+import com.xiaofeiluo.router.applaction.IAppInit
 
-@Route(path = module2AppInit)
+
+@Route(path = AppModules.module2AppInit)
 class Module2Applaction : IAppInit {
 
     override fun initApp(applaction: Application) {
