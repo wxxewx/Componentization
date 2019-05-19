@@ -1,10 +1,8 @@
 package com.example.bus.event
 
-import com.example.bus.liveBus.IEvent
+import com.example.bus.liveBus.Event
 
-class UserEvent : IEvent {
-    override var key: String = "UserEvent"
-
-
+@Event("UserEvent")
+class UserEvent {
 
 }
