@@ -6,32 +6,31 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import java.lang.NullPointerException
 import java.util.HashMap
+import kotlin.reflect.KClass
 
 
 object BusManager {
 
-    private val busEvents: HashMap<String, Bus<Any>>
-        get() = hashMapOf()
+    private val busEvents: HashMap<String, Bus<*>> = hashMapOf()
 
 
     @Synchronized
-    fun <T : Any> observe(lifecycleOwner: LifecycleOwner, cls: Class<Any>): Bus<Any>? {
+    fun <T : Any> call(cls: KClass<T>): Bus<T> {
         val key = checkType(cls)
 
         val bus = busEvents[key]
         if (bus == null) {
-            val mutableLiveData = MutableLiveData<T>()
-            val bus = Bus<T>(lifecycleOwner, mutableLiveData) as Bus<Any>
+            val bus = Bus<T>()
             busEvents[key] = bus
             return bus
         } else {
-            return bus
+            return bus as Bus<T>
         }
     }
 
     @Synchronized
-    fun postEvent(event: Event) {
-        val key = checkType(event.javaClass)
+    fun postEvent(event: Any) {
+        val key = checkType(event::class)
         val bus = busEvents[key]
         if (bus != null) {
             bus.postEvent(event)
@@ -39,11 +38,8 @@ object BusManager {
     }
 
 
-    private fun checkType(cls: Class<Any>): String {
-        val annotations = cls.annotations
-        val event = annotations.find {
-            it is Event
-        }
+    private fun checkType(cls: KClass<*>): String {
+        val event = cls.java.getAnnotation(Event::class.java)
         if (event != null) {
             return (event as Event).key
         } else {
@@ -55,10 +51,10 @@ object BusManager {
 }
 
 
-class Bus<T>(var lifecycleOwner: LifecycleOwner, var liveData: MutableLiveData<T>) {
+class Bus<T> {
+    private var liveData: MutableLiveData<T> = MutableLiveData<T>()
 
-
-    fun call(call: (event: T) -> Unit) {
+    fun observe(lifecycleOwner: LifecycleOwner, call: (event: T) -> Unit) {
         liveData.observe(lifecycleOwner, Observer { it ->
             it.let {
                 call.invoke(it as T)
@@ -66,7 +62,7 @@ class Bus<T>(var lifecycleOwner: LifecycleOwner, var liveData: MutableLiveData<T
         })
     }
 
-    fun postEvent(event: T) {
-        liveData.postValue(event)
+    fun postEvent(event: Any) {
+        liveData.postValue(event as T)
     }
 }

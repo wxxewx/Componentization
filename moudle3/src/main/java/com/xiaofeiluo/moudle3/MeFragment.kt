@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.bus.event.UserEvent
+import com.example.bus.liveBus.BusManager
+import com.xiaofeiluo.router.module1.Module1RouterPath
 import com.xiaofeiluo.router.module3.IUserInfoService
 import com.xiaofeiluo.router.module3.Module3RouterPath
 import kotlinx.android.synthetic.main.me.*
@@ -23,6 +26,13 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUernfo()
+
+        Module1Home.setOnClickListener {
+            ARouter.getInstance().build(Module1RouterPath.home_activity).navigation()
+        }
+        BusManager.call(UserEvent::class).observe(this) {
+            name.text = it.newName
+        }
     }
 
     private fun initUernfo() {

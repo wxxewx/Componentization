@@ -90,4 +90,10 @@
 			android:layout_width="match_parent"
 			android:layout_height="1dp"
 			android:background="#eeeeee"/>
+
+	<Button
+			android:text="Module1Home"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/Module1Home"/>
 </LinearLayout>

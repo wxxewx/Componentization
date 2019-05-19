@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.bus.event.UserEvent
+import com.example.bus.liveBus.BusManager
 import com.xiaofeiluo.router.module1.Module1RouterPath
 import com.xiaofeiluo.router.module3.IUserInfoService
 import com.xiaofeiluo.router.module3.Module3RouterPath
@@ -25,6 +27,10 @@ class Module1HomeActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        updateName.setOnClickListener {
+            BusManager.postEvent(UserEvent("李四"))
         }
     }
 }
