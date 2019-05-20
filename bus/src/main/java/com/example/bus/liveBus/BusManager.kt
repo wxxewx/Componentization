@@ -48,11 +48,14 @@ object BusManager {
     }
 
 
+
+
+
 }
 
 
 class Bus<T> {
-    private var liveData: MutableLiveData<T> = MutableLiveData<T>()
+    private var liveData: BusMutableLiveData<T> = BusMutableLiveData<T>()
 
     fun observe(lifecycleOwner: LifecycleOwner, call: (event: T) -> Unit) {
         liveData.observe(lifecycleOwner, Observer { it ->

@@ -32,5 +32,9 @@ class Module1HomeActivity : AppCompatActivity() {
         updateName.setOnClickListener {
             BusManager.postEvent(UserEvent("李四"))
         }
+
+        BusManager.call(UserEvent::class).observe(this) {
+            name.text = it.newName
+        }
     }
 }
